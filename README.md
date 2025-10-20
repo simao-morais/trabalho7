@@ -60,8 +60,8 @@ git --version
 ### 1. Clonar este Repositório
 
 ```powershell
-git clone <URL_DO_SEU_REPOSITORIO>
-cd SD_07
+git clone https://github.com/simao-morais/trabalho7.git
+cd trabalho7
 ```
 
 ### 2. Clonar o Spring PetClinic Microservices
@@ -93,7 +93,7 @@ mkdir results
 ## 📁 Estrutura do Projeto
 
 ```
-SD_07/
+trabalho7/
 ├── spring-petclinic-microservices/    # Sistema a ser testado
 │   ├── docker-compose.yml
 │   └── ...
@@ -169,7 +169,7 @@ python popular_banco.py
 Volte para a pasta raiz do projeto:
 
 ```powershell
-cd SD_07
+cd trabalho7
 ```
 
 #### Opção A: Executar Cenários Individualmente
@@ -390,12 +390,13 @@ Após processar os resultados, você terá:
 
 ## 👥 Autores
 
-- **Seu Nome** - [seu-email@exemplo.com]
-- **Nome do Colega** - [email@exemplo.com]
+- **Pedro Tércio** - [seu-email@exemplo.com]
+- **Robson Santos** - [email@exemplo.com]
+- **Simão Morais** - simao.morais@ufpi.edu.br
 
 **Disciplina:** Sistemas Distribuídos  
-**Instituição:** [Nome da Universidade]  
-**Período:** 2025.1
+**Instituição:** UFPI  
+**Período:** 2025.2
 
 ---
 
@@ -404,14 +405,3 @@ Após processar os resultados, você terá:
 Este projeto é para fins acadêmicos. O Spring PetClinic é mantido pela Pivotal/VMware sob a licença Apache 2.0.
 
 ---
-
-## 🆘 Suporte
-
-Em caso de dúvidas:
-1. Consulte a seção [Troubleshooting](#troubleshooting)
-2. Verifique os logs: `docker-compose logs -f`
-3. Entre em contato com os autores
-
----
-
-**Última atualização:** Outubro de 2025
