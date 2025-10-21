@@ -6,25 +6,56 @@ from datetime import datetime
 from colorama import Fore, Style, init
 import os
 
-# Inicializa o colorama (para colorir o terminal no Windows/Linux)
+# Inicializa cores no terminal
 init(autoreset=True)
 
-# === Configuração de LOGGING ===
+# === Configuração do diretório e arquivo de log ===
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
+LOG_FILE = os.path.join(LOG_DIR, f"locust_petclinic_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
 
-log_file = os.path.join(LOG_DIR, f"locust_petclinic_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler(log_file, encoding="utf-8"),
-        logging.StreamHandler()  # mostra também no terminal
-    ]
-)
+def setup_logger():
+    """
+    Configura e retorna um logger que grava em arquivo e no terminal (colorido).
+    Evita múltiplos handlers duplicados.
+    """
+    logger = logging.getLogger("PetClinicLogger")
+    logger.setLevel(logging.INFO)
 
-logger = logging.getLogger(__name__)
+    if not logger.handlers:
+        # Formato de log
+        formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+
+        # Handler para arquivo
+        file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+
+        # Handler para terminal (colorido)
+        class ColorFormatter(logging.Formatter):
+            COLORS = {
+                logging.DEBUG: Fore.CYAN,
+                logging.INFO: Fore.GREEN,
+                logging.WARNING: Fore.YELLOW,
+                logging.ERROR: Fore.RED,
+                logging.CRITICAL: Fore.MAGENTA + Style.BRIGHT,
+            }
+
+            def format(self, record):
+                color = self.COLORS.get(record.levelno, "")
+                message = super().format(record)
+                return f"{color}{message}{Style.RESET_ALL}"
+
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(ColorFormatter("%(asctime)s [%(levelname)s] %(message)s"))
+        logger.addHandler(console_handler)
+
+    return logger
+
+
+# Instancia o logger global
+logger = setup_logger()
 
 
 class PetClinicUser(HttpUser):
@@ -36,10 +67,7 @@ class PetClinicUser(HttpUser):
     owner_ids = []
 
     def on_start(self):
-        """
-        Executado quando cada usuário virtual inicia.
-        Busca IDs de owners existentes para usar nos testes.
-        """
+        """Executado quando cada usuário virtual inicia."""
         try:
             response = self.client.get("/api/customer/owners")
             if response.status_code == 200:
