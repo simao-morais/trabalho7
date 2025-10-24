@@ -1,0 +1,5 @@
+Method,Name,Error,Occurrences
+POST,POST /owners (criar),CatchResponseError('Serviço indisponível (503)'),6
+GET,GET /vets,CatchResponseError('Status 405'),1863
+GET,GET /owners/{id},CatchResponseError('Status 405'),11
+GET,GET /owners (lista),CatchResponseError('Status 405'),17
