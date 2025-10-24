@@ -33,7 +33,7 @@ Repositório: https://github.com/spring-petclinic/spring-petclinic-microservices
 
 ```powershell
 # Clonar repositório
-git clone https://github.com/simao-morais/SD_07.git
+git clone https://github.com/simao-morais/trabalho7.git
 cd trabalho7
 
 # Clonar Spring PetClinic
@@ -117,13 +117,11 @@ Cada execução produz 3 CSVs na pasta `results/`:
 _trabalho7/
 ├── locustfile.py              # Script Locust com mix de requisições
 ├── processar_resultados.py    # Processa e calcula médias das 30 repetições
-├── graficos_30_repeticoes.py  # Gera gráficos de análise
 ├── run_leve.bat               # Executa cenário leve
 ├── run_moderado.bat           # Executa cenário moderado
 ├── run_pico.bat               # Executa cenário pico
 ├── executar_todos.bat         # Executa 90 testes (30×3)
 ├── results/                   # CSVs de resultados
-├── graficos_30rep/            # Gráficos gerados
 └── spring-petclinic-microservices/  # Sistema testado
 ```
 
