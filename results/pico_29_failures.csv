@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences
+GET,/api/customer/owners,HTTPError('405 Client Error: Method Not Allowed for url: /api/customer/owners'),200
+POST,POST /owners (criar),CatchResponseError('Status 503'),2503
+GET,GET /vets,CatchResponseError('Status 405'),4907
+GET,GET /owners/{id},CatchResponseError('Status 405'),5824
+GET,GET /owners (lista),CatchResponseError('Status 405'),10161
