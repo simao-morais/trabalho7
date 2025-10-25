@@ -2,8 +2,12 @@
 
 Trabalho acadêmico de medição e análise de desempenho do Spring PetClinic (versão microservices) usando Apache Locust.
 
-📹 [Vídeo demonstrativo do funcionamento do sistema](https://youtu.be/8A0RfsTla7M?feature=shared)
+---
+
+📹 [Vídeo demonstrativo do funcionamento do sistema](https://youtu.be/8A0RfsTla7M?feature=shared)  
 📄 [Artigo no Overleaf](https://www.overleaf.com/read/dwmrrfghpcmk#08407b)
+
+---
 
 ## 📋 Objetivo
 
