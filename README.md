@@ -2,6 +2,9 @@
 
 Trabalho acadêmico de medição e análise de desempenho do Spring PetClinic (versão microservices) usando Apache Locust.
 
+📹 [Vídeo demonstrativo do funcionamento do sistema](https://youtu.be/8A0RfsTla7M?feature=shared)
+📄 [Artigo no Overleaf](https://www.overleaf.com/read/dwmrrfghpcmk#08407b)
+
 ## 📋 Objetivo
 
 Medir e relatar o desempenho básico do Spring PetClinic executando 3 cenários de carga (leve, moderado e pico) com 30 repetições cada, analisando tempo de resposta, throughput, taxa de sucesso e falhas.
